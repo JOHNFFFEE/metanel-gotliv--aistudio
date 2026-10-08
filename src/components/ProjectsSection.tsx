@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform, MotionValue } from 'framer-motion';
 import FadeIn from './FadeIn';
 import LiveProjectButton from './LiveProjectButton';
 import SafeImage from './SafeImage';
+import { PORTFOLIO_IMAGES } from '../assets/portfolioImages';
 
 export interface ProjectData {
   number: string;
@@ -23,10 +24,9 @@ export const PROJECTS_DATA: ProjectData[] = [
     credits: 'בימוי, הפקה וקריאייטיב לעשרות אמנים מובילים',
     description:
       'הפקת קליפים קולנועיים לאמנים הגדולים ביותר בישראל — אנה זק, שירי מימון, עידו מלכה, האחיות כרקוקלי ועוד עשרות כוכבים. סטים מרהיבים, ארט מוקפד וצילום שמציב רף חדש בתעשייה.',
-    col1Image1: '/src/assets/images/project_music_videos_1791452018952.jpg',
-    col1Image2: 'https://motionsites.ai/assets/hero-space-voyage-preview-eECLH3Yc.gif',
-    col2Image:
-      'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055451_e317bf2d-28d4-48cc-86b0-6f72f25b6327.png&w=1280&q=85',
+    col1Image1: PORTFOLIO_IMAGES.igAnnaZakStudio,
+    col1Image2: PORTFOLIO_IMAGES.igIdoMalkaClip,
+    col2Image: PORTFOLIO_IMAGES.igOrangeDressStage,
   },
   {
     number: '02',
@@ -35,10 +35,9 @@ export const PROJECTS_DATA: ProjectData[] = [
     credits: 'הפקות קולנוע שוברות קופות בקנה מידה ארצי',
     description:
       'עשייה קולנועית על הסטים הגדולים והמדוברים בישראל — החל מלהיט הקופות "בחורים טובים 3" ועד הפיצ׳ר החדש של המאסטר אבי נשר. עבודה עם השחקנים והצוותים המובילים במדינה.',
-    col1Image1: '/src/assets/images/project_cinema_films_1791452032075.jpg',
-    col1Image2:
-      'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055723_5ceda0b8-d9c2-4665-b2e3-83ba19ba76d1.png&w=1280&q=85',
-    col2Image: '/src/assets/images/project_cinema_films_1791452032075.jpg',
+    col1Image1: PORTFOLIO_IMAGES.igNetflixCrtTv,
+    col1Image2: PORTFOLIO_IMAGES.matanelDirectorPortrait,
+    col2Image: PORTFOLIO_IMAGES.projectCinemaFilms,
   },
   {
     number: '03',
@@ -47,10 +46,9 @@ export const PROJECTS_DATA: ProjectData[] = [
     credits: 'מתנאל גוטליב — מפיק, תסריטאי ויוצר',
     description:
       'הסרט המקורי והמדובר של מתנאל גוטליב שעורר הדים בתקשורת וב"הצינור". דרמה חדה, אנושית ומפתיעה שמדגימה איך סטוריטלינג מדויק ובימוי נועז הופכים לתופעה.',
-    col1Image1: '/src/assets/images/project_primetime_mom_1791452057828.jpg',
-    col1Image2:
-      'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055344_5eff02e0-87a5-41ce-b64f-eb08da8f33db.png&w=1280&q=85',
-    col2Image: '/src/assets/images/project_primetime_mom_1791452057828.jpg',
+    col1Image1: PORTFOLIO_IMAGES.igHatzinorInterview,
+    col1Image2: PORTFOLIO_IMAGES.projectCinemaFilms,
+    col2Image: PORTFOLIO_IMAGES.projectPrimetimeMom,
   },
   {
     number: '04',
@@ -59,9 +57,9 @@ export const PROJECTS_DATA: ProjectData[] = [
     credits: 'קמפיינים ופרסומות למותגים מובילים',
     description:
       'הפקות מסחריות ופרסומות שלא נראות כמו עוד תשדיר גנרי. שילוב של אנרגיה גבוהה, כוריאוגרפיה, אופנה וצילום קולנועי חד שמייצר נוכחות מיידית ומניע לפעולה.',
-    col1Image1: '/src/assets/images/project_adidas_commercial_1791452044667.jpg',
-    col1Image2: 'https://motionsites.ai/assets/hero-vex-ventures-preview-BczMFIiw.gif',
-    col2Image: '/src/assets/images/project_adidas_commercial_1791452044667.jpg',
+    col1Image1: PORTFOLIO_IMAGES.projectMusicVideos,
+    col1Image2: PORTFOLIO_IMAGES.igAnnaZakStudio,
+    col2Image: PORTFOLIO_IMAGES.projectAdidasCommercial,
   },
 ];
 

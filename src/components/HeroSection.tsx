@@ -4,6 +4,7 @@ import FadeIn from './FadeIn';
 import Magnet from './Magnet';
 import ContactButton from './ContactButton';
 import SafeImage from './SafeImage';
+import { PORTFOLIO_IMAGES } from '../assets/portfolioImages';
 
 interface HeroSectionProps {
   onOpenContact: () => void;
@@ -146,7 +147,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               className="group relative rounded-[32px] sm:rounded-[40px] overflow-hidden border-2 border-[#D7E2EA]/80 bg-[#141518] shadow-[0_24px_80px_rgba(182,0,168,0.28)] cursor-pointer"
             >
               <SafeImage
-                src="/src/assets/images/matanel_director_portrait_1791452004358.jpg"
+                src={PORTFOLIO_IMAGES.matanelDirectorPortrait}
                 alt="מתנאל גוטליב — מפיק, תסריטאי ובמאי"
                 fallbackLabel="MATANEL GOTLIB"
                 className="w-full h-[300px] sm:h-[370px] md:h-[420px] lg:h-[450px] object-cover object-top block select-none transition-transform duration-500 group-hover:scale-105"

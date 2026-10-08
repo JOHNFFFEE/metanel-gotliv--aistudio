@@ -1,120 +1,114 @@
 import React, { useEffect, useRef, useState } from 'react';
 import SafeImage from './SafeImage';
+import { PORTFOLIO_IMAGES } from '../assets/portfolioImages';
 
 interface ReelItem {
   url: string;
   title: string;
   tag: string;
+  badgeStyle?: 'primetime' | 'hatzinor' | 'adidas' | 'netflix' | 'default';
 }
 
 const ROW_1_BASE: ReelItem[] = [
   {
-    url: '/src/assets/images/project_music_videos_1791452018952.jpg',
-    title: 'אנה זק — הפקת קליפ',
+    url: PORTFOLIO_IMAGES.projectPrimetimeMom,
+    title: 'PRIME TIME MOM — אמא פריים טיים',
+    tag: 'ORIGINAL FILM',
+    badgeStyle: 'primetime',
+  },
+  {
+    url: PORTFOLIO_IMAGES.igHatzinorInterview,
+    title: 'מתנאל גוטליב — מפיק ויוצר הסרט "אמא פריים טיים"',
+    tag: 'הצינור · ספיישל טלוויזיה',
+    badgeStyle: 'hatzinor',
+  },
+  {
+    url: PORTFOLIO_IMAGES.projectCinemaFilms,
+    title: 'בחורים טובים 3 — קולנוע',
+    tag: 'FEATURE FILM · MM (US)',
+  },
+  {
+    url: PORTFOLIO_IMAGES.projectAdidasCommercial,
+    title: 'מגה ספורט | adidas EXCLUSIVE',
+    tag: 'COMMERCIAL CAMPAIGN',
+    badgeStyle: 'adidas',
+  },
+  {
+    url: PORTFOLIO_IMAGES.igAnnaZakStudio,
+    title: 'אנה זק — הפקת קליפ רשמי',
     tag: 'MUSIC VIDEO',
   },
   {
-    url: 'https://motionsites.ai/assets/hero-space-voyage-preview-eECLH3Yc.gif',
-    title: 'שירי מימון — קליפ רשמי',
+    url: PORTFOLIO_IMAGES.igIdoMalkaClip,
+    title: 'עידו מלכה — קליפ רשמי',
+    tag: 'DIRECTOR & PRODUCER',
+  },
+  {
+    url: PORTFOLIO_IMAGES.igOrangeDressStage,
+    title: 'שירי מימון / האחיות כרקוקלי — קליפ',
     tag: 'POP PRODUCTION',
   },
   {
-    url: '/src/assets/images/project_cinema_films_1791452032075.jpg',
-    title: 'בחורים טובים 3 — קולנוע',
-    tag: 'FEATURE FILM',
+    url: PORTFOLIO_IMAGES.igNetflixCrtTv,
+    title: 'פרויקט קולנוע ודרמה — N SERIES',
+    tag: 'CINEMA CONCEPT',
+    badgeStyle: 'netflix',
   },
   {
-    url: 'https://motionsites.ai/assets/hero-vex-ventures-preview-BczMFIiw.gif',
-    title: 'עידו מלכה — סינגל חדש',
-    tag: 'DIRECTOR CUT',
-  },
-  {
-    url: '/src/assets/images/project_primetime_mom_1791452057828.jpg',
-    title: 'אמא פריים טיים — יוצר ומפיק',
-    tag: 'PRIME TIME MOM',
-  },
-  {
-    url: 'https://motionsites.ai/assets/hero-stellar-ai-v2-preview-DjvxjG3C.gif',
-    title: 'האחיות כרקוקלי — קליפ',
-    tag: 'MUSIC VIDEO',
-  },
-  {
-    url: '/src/assets/images/project_adidas_commercial_1791452044667.jpg',
-    title: 'ADIDAS x מגה ספורט',
-    tag: 'COMMERCIAL',
-  },
-  {
-    url: 'https://motionsites.ai/assets/hero-asme-preview-B_nGDnTP.gif',
-    title: 'החדש של אבי נשר — קולנוע',
-    tag: 'CINEMA',
-  },
-  {
-    url: 'https://motionsites.ai/assets/hero-transform-data-preview-Cx5OU29N.gif',
-    title: 'קמפיין פריים טיים',
-    tag: 'TV CAMPAIGN',
-  },
-  {
-    url: 'https://motionsites.ai/assets/hero-vitara-preview-Cjz2QYyU.gif',
-    title: 'הפקת מקור — NETFLIX VIBE',
-    tag: 'ORIGINAL',
-  },
-  {
-    url: 'https://motionsites.ai/assets/hero-terra-preview-BFjrCr7T.gif',
-    title: 'הצינור — ספיישל אמא פריים טיים',
-    tag: 'PRESS & TV',
+    url: PORTFOLIO_IMAGES.projectMusicVideos,
+    title: 'החדש של אבי נשר — הפקת קולנוע',
+    tag: 'CINEMA PRODUCTION',
   },
 ];
 
 const ROW_2_BASE: ReelItem[] = [
   {
-    url: 'https://motionsites.ai/assets/hero-skyelite-preview-DHaZIgUv.gif',
-    title: 'אנה זק — סט צילומים',
-    tag: 'BACKSTAGE',
+    url: PORTFOLIO_IMAGES.igAnnaZakStudio,
+    title: 'אנה זק — מאחורי הקלעים על הסט',
+    tag: 'TOP ARTIST',
   },
   {
-    url: '/src/assets/images/project_adidas_commercial_1791452044667.jpg',
-    title: 'ADIDAS EXCLUSIVE CAMPAIGN',
-    tag: 'BRAND FILM',
-  },
-  {
-    url: 'https://motionsites.ai/assets/hero-aethera-preview-DknSlcTa.gif',
-    title: 'שירי מימון — לייב סשן',
-    tag: 'LIVE VISUALS',
-  },
-  {
-    url: '/src/assets/images/project_primetime_mom_1791452057828.jpg',
-    title: 'PRIME TIME MOM — הסרט',
-    tag: 'FESTIVAL & TV',
-  },
-  {
-    url: 'https://motionsites.ai/assets/hero-designpro-preview-D8c5_een.gif',
-    title: 'עידו מלכה — קליפ רשמי',
+    url: PORTFOLIO_IMAGES.igOrangeDressStage,
+    title: 'האחיות כרקוקלי — כוריאוגרפיה ובימוי',
     tag: 'MUSIC VIDEO',
   },
   {
-    url: 'https://motionsites.ai/assets/hero-stellar-ai-preview-D3HL6bw1.gif',
-    title: 'האחיות כרקוקלי — הפקה',
-    tag: 'ART DIRECTION',
+    url: PORTFOLIO_IMAGES.projectAdidasCommercial,
+    title: 'מגה ספורט x ADIDAS — קמפיין בלעדי',
+    tag: 'BRAND COMMERCIAL',
+    badgeStyle: 'adidas',
   },
   {
-    url: '/src/assets/images/project_cinema_films_1791452032075.jpg',
-    title: 'בחורים טובים 3 — על הסט',
-    tag: 'BOX OFFICE HIT',
+    url: PORTFOLIO_IMAGES.igIdoMalkaClip,
+    title: 'עידו מלכה — סט צילומים',
+    tag: 'MUSIC VIDEO',
   },
   {
-    url: 'https://motionsites.ai/assets/hero-orbit-web3-preview-BXt4OttD.gif',
-    title: 'החדש של אבי נשר',
-    tag: 'FEATURE FILM',
+    url: PORTFOLIO_IMAGES.projectPrimetimeMom,
+    title: 'הצינור — מתנאל גוטליב בסרט מפתיע',
+    tag: 'PRIME TIME MOM',
+    badgeStyle: 'hatzinor',
   },
   {
-    url: '/src/assets/images/project_music_videos_1791452018952.jpg',
-    title: 'GOATLIB SHOWREEL 2026',
-    tag: 'SHOWREEL',
+    url: PORTFOLIO_IMAGES.projectCinemaFilms,
+    title: 'בחורים טובים 3 & החדש של אבי נשר',
+    tag: 'BOX OFFICE CINEMA',
   },
   {
-    url: 'https://motionsites.ai/assets/hero-celestia-preview-0yO3jXO8.gif',
-    title: 'קמפיינים ופרסומות — GOATLIB',
-    tag: 'COMMERCIALS',
+    url: PORTFOLIO_IMAGES.igNetflixCrtTv,
+    title: 'GOATLIB ENTERTAINMENT — סרטים וקליפים',
+    tag: 'ORIGINAL PRODUCTION',
+    badgeStyle: 'netflix',
+  },
+  {
+    url: PORTFOLIO_IMAGES.projectMusicVideos,
+    title: 'שירי מימון — הפקת ענק',
+    tag: 'LIVE & VIDEO',
+  },
+  {
+    url: PORTFOLIO_IMAGES.matanelDirectorPortrait,
+    title: 'מתנאל גוטליב — על הסט (BSR)',
+    tag: 'DIRECTOR ON SET',
   },
 ];
 
@@ -164,6 +158,72 @@ export const MarqueeSection: React.FC<MarqueeSectionProps> = ({
     };
   }, []);
 
+  const renderTileOverlay = (item: ReelItem) => {
+    if (item.badgeStyle === 'primetime') {
+      return (
+        <div
+          dir="ltr"
+          className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent p-5 flex flex-col justify-end items-center text-center"
+        >
+          <span className="font-display-en font-black text-red-600 text-xl sm:text-2xl tracking-tight leading-none drop-shadow">
+            PRIME TIME
+          </span>
+          <span className="font-display-en font-black text-white text-4xl sm:text-5xl tracking-tight leading-none -mt-1 drop-shadow">
+            MOM
+          </span>
+        </div>
+      );
+    }
+
+    if (item.badgeStyle === 'hatzinor') {
+      return (
+        <div
+          dir="rtl"
+          className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-transparent p-4 flex flex-col justify-end items-center text-center"
+        >
+          <div className="bg-red-600 text-white font-black text-xl sm:text-2xl px-4 py-0.5 leading-tight tracking-tight">
+            הצינור
+          </div>
+          <div className="bg-black/90 border border-white/20 text-white font-bold text-xs sm:text-sm px-3 py-1 mt-1">
+            {item.title}
+          </div>
+        </div>
+      );
+    }
+
+    if (item.badgeStyle === 'adidas') {
+      return (
+        <div
+          dir="rtl"
+          className="absolute inset-0 bg-black/35 group-hover:bg-black/20 transition-colors p-4 flex flex-col items-center justify-center text-center"
+        >
+          <div className="flex items-center gap-3 text-white font-black text-lg sm:text-xl tracking-wide drop-shadow-md">
+            <span>מגה ספורט</span>
+            <span className="text-white/50">|</span>
+            <span className="font-display-en uppercase">adidas</span>
+          </div>
+          <span className="font-display-en text-[11px] tracking-[0.35em] text-white/90 uppercase mt-1">
+            E X C L U S I V E
+          </span>
+        </div>
+      );
+    }
+
+    return (
+      <div
+        dir="rtl"
+        className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent opacity-90 group-hover:opacity-100 transition-opacity p-4 flex flex-col justify-end"
+      >
+        <span className="text-[11px] font-display-en tracking-widest uppercase text-[#D7E2EA]/75">
+          {item.tag}
+        </span>
+        <span className="text-white font-bold text-base sm:text-lg leading-tight">
+          {item.title}
+        </span>
+      </div>
+    );
+  };
+
   return (
     <section
       id="roster"
@@ -192,7 +252,7 @@ export const MarqueeSection: React.FC<MarqueeSectionProps> = ({
       </div>
 
       <div className="flex flex-col gap-3" dir="ltr">
-        {/* Row 1: first 11 images, tripled, moves RIGHT on scroll */}
+        {/* Row 1: moves RIGHT on scroll */}
         <div
           className="flex gap-3 justify-center"
           style={{
@@ -204,7 +264,7 @@ export const MarqueeSection: React.FC<MarqueeSectionProps> = ({
             <div
               key={`row1-${idx}`}
               onClick={onSelectReel}
-              className="group relative w-[340px] sm:w-[420px] h-[220px] sm:h-[270px] shrink-0 rounded-2xl overflow-hidden bg-[#141518] cursor-pointer"
+              className="group relative w-[340px] sm:w-[420px] h-[230px] sm:h-[280px] shrink-0 rounded-2xl overflow-hidden bg-[#141518] cursor-pointer border border-white/10"
             >
               <SafeImage
                 src={item.url}
@@ -213,22 +273,12 @@ export const MarqueeSection: React.FC<MarqueeSectionProps> = ({
                 loading="lazy"
                 className="w-full h-full rounded-2xl object-cover block transition-transform duration-500 group-hover:scale-105"
               />
-              <div
-                dir="rtl"
-                className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent opacity-90 group-hover:opacity-100 transition-opacity p-4 flex flex-col justify-end"
-              >
-                <span className="text-[11px] font-display-en tracking-widest uppercase text-[#D7E2EA]/75">
-                  {item.tag}
-                </span>
-                <span className="text-white font-bold text-base sm:text-lg leading-tight">
-                  {item.title}
-                </span>
-              </div>
+              {renderTileOverlay(item)}
             </div>
           ))}
         </div>
 
-        {/* Row 2: remaining 10 images, tripled, moves LEFT on scroll */}
+        {/* Row 2: moves LEFT on scroll */}
         <div
           className="flex gap-3 justify-center"
           style={{
@@ -240,7 +290,7 @@ export const MarqueeSection: React.FC<MarqueeSectionProps> = ({
             <div
               key={`row2-${idx}`}
               onClick={onSelectReel}
-              className="group relative w-[340px] sm:w-[420px] h-[220px] sm:h-[270px] shrink-0 rounded-2xl overflow-hidden bg-[#141518] cursor-pointer"
+              className="group relative w-[340px] sm:w-[420px] h-[230px] sm:h-[280px] shrink-0 rounded-2xl overflow-hidden bg-[#141518] cursor-pointer border border-white/10"
             >
               <SafeImage
                 src={item.url}
@@ -249,17 +299,7 @@ export const MarqueeSection: React.FC<MarqueeSectionProps> = ({
                 loading="lazy"
                 className="w-full h-full rounded-2xl object-cover block transition-transform duration-500 group-hover:scale-105"
               />
-              <div
-                dir="rtl"
-                className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent opacity-90 group-hover:opacity-100 transition-opacity p-4 flex flex-col justify-end"
-              >
-                <span className="text-[11px] font-display-en tracking-widest uppercase text-[#D7E2EA]/75">
-                  {item.tag}
-                </span>
-                <span className="text-white font-bold text-base sm:text-lg leading-tight">
-                  {item.title}
-                </span>
-              </div>
+              {renderTileOverlay(item)}
             </div>
           ))}
         </div>

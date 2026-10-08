@@ -244,9 +244,23 @@ export const ContactSection: React.FC = () => {
         </div>
 
         {/* Clean Minimal Footer */}
-        <footer className="mt-12 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#D7E2EA]/50 px-2">
-          <div>
-            © {new Date().getFullYear()} מתנאל גוטליב — GOATLIB ENTERTAINMENT. כל הזכויות שמורות.
+        <footer className="mt-12 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#D7E2EA]/60 px-2">
+          <div className="flex flex-wrap items-center gap-3">
+            <span>
+              © {new Date().getFullYear()} מתנאל גוטליב — GOATLIB ENTERTAINMENT. כל הזכויות שמורות.
+            </span>
+            <span aria-hidden="true" className="text-[#D7E2EA]/30">
+              ·
+            </span>
+            <a
+              href="https://www.biznova.tech"
+              target="_blank"
+              rel="noopener noreferrer"
+              dir="ltr"
+              className="font-display-en font-bold uppercase tracking-widest text-[#D7E2EA] hover:text-[#B600A8] transition-colors"
+            >
+              DESIGNED BY BIZNOVA (www.biznova.tech)
+            </a>
           </div>
           <div className="flex items-center gap-6">
             <a

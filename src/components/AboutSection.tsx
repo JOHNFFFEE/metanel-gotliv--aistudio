@@ -1,8 +1,10 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import FadeIn from './FadeIn';
 import AnimatedText from './AnimatedText';
 import ContactButton from './ContactButton';
 import SafeImage from './SafeImage';
+import { PORTFOLIO_IMAGES } from '../assets/portfolioImages';
 
 interface AboutSectionProps {
   onOpenContact: () => void;
@@ -15,72 +17,108 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenContact }) => 
   return (
     <section
       id="about"
-      className="min-h-screen w-full relative flex flex-col items-center justify-center px-5 sm:px-8 md:px-10 py-24 bg-[#0C0C0C]"
+      className="min-h-screen w-full relative flex flex-col items-center justify-center px-5 sm:px-8 md:px-10 py-28 bg-[#0C0C0C]"
       style={{ overflowX: 'clip' }}
     >
-      {/* Decorative 3D Corner Images */}
-      {/* Top-Left: Moon icon */}
+      {/* Decorative 3D Cinema & Film Equipment Corner Icons */}
+      {/* Top-Left: 3D HDR Cinema Camera Rig */}
       <FadeIn
         delay={0.1}
         x={-80}
         y={0}
         duration={0.9}
-        className="absolute top-[4%] left-[1%] sm:left-[2%] md:left-[4%] w-[110px] sm:w-[150px] md:w-[200px] pointer-events-none select-none z-0"
+        className="absolute top-[4%] left-[1%] sm:left-[2%] md:left-[4%] w-[115px] sm:w-[165px] md:w-[220px] pointer-events-none select-none z-0"
       >
-        <SafeImage
-          src="https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/moon_icon.11395d36.png"
-          alt="3D Cinema Element"
-          transparentFallback
-          className="w-full h-auto object-contain"
-        />
+        <motion.div
+          animate={{ y: [0, -10, 0], rotate: [-2, 2, -2] }}
+          transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+          className="flex flex-col items-center"
+        >
+          <SafeImage
+            src={PORTFOLIO_IMAGES.iconCinemaCameraHdr}
+            alt="HDR Cinema Camera Rig"
+            transparentFallback
+            className="w-full h-auto object-contain mix-blend-lighten rounded-3xl"
+          />
+          <span className="hidden sm:inline-block text-[10px] font-display-en tracking-widest uppercase text-[#D7E2EA]/40 -mt-2">
+            HDR CINEMA CAMERA
+          </span>
+        </motion.div>
       </FadeIn>
 
-      {/* Bottom-Left: 3D object */}
+      {/* Bottom-Left: 3D Cinema Studio Fresnel Light */}
       <FadeIn
         delay={0.25}
         x={-80}
         y={0}
         duration={0.9}
-        className="absolute bottom-[8%] left-[3%] sm:left-[6%] md:left-[10%] w-[95px] sm:w-[135px] md:w-[175px] pointer-events-none select-none z-0"
+        className="absolute bottom-[6%] left-[2%] sm:left-[5%] md:left-[8%] w-[110px] sm:w-[155px] md:w-[205px] pointer-events-none select-none z-0"
       >
-        <SafeImage
-          src="https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/p59_1.4659672e.png"
-          alt="3D Sculptural Object"
-          transparentFallback
-          className="w-full h-auto object-contain"
-        />
+        <motion.div
+          animate={{ y: [0, 12, 0], rotate: [2, -2, 2] }}
+          transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
+          className="flex flex-col items-center"
+        >
+          <SafeImage
+            src={PORTFOLIO_IMAGES.iconCinemaFresnelLight}
+            alt="Cinema Studio Fresnel Spotlight"
+            transparentFallback
+            className="w-full h-auto object-contain mix-blend-lighten rounded-3xl"
+          />
+          <span className="hidden sm:inline-block text-[10px] font-display-en tracking-widest uppercase text-[#D7E2EA]/40 -mt-2">
+            STUDIO CINEMA LIGHTS
+          </span>
+        </motion.div>
       </FadeIn>
 
-      {/* Top-Right: Lego icon */}
+      {/* Top-Right: 3D Director Clapperboard & Anamorphic Lens */}
       <FadeIn
         delay={0.15}
         x={80}
         y={0}
         duration={0.9}
-        className="absolute top-[4%] right-[1%] sm:right-[2%] md:right-[4%] w-[110px] sm:w-[150px] md:w-[200px] pointer-events-none select-none z-0"
+        className="absolute top-[4%] right-[1%] sm:right-[2%] md:right-[4%] w-[115px] sm:w-[165px] md:w-[220px] pointer-events-none select-none z-0"
       >
-        <SafeImage
-          src="https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/lego_icon-1.703bb594.png"
-          alt="3D Creative Element"
-          transparentFallback
-          className="w-full h-auto object-contain"
-        />
+        <motion.div
+          animate={{ y: [0, -12, 0], rotate: [2, -2, 2] }}
+          transition={{ duration: 6.5, repeat: Infinity, ease: 'easeInOut' }}
+          className="flex flex-col items-center"
+        >
+          <SafeImage
+            src={PORTFOLIO_IMAGES.iconCinemaClapperLens}
+            alt="Director Clapperboard & Anamorphic Lens"
+            transparentFallback
+            className="w-full h-auto object-contain mix-blend-lighten rounded-3xl"
+          />
+          <span className="hidden sm:inline-block text-[10px] font-display-en tracking-widest uppercase text-[#D7E2EA]/40 -mt-2">
+            ANAMORPHIC & SLATE
+          </span>
+        </motion.div>
       </FadeIn>
 
-      {/* Bottom-Right: 3D group */}
+      {/* Bottom-Right: 3D 35mm Film Reel & Director Monitor */}
       <FadeIn
         delay={0.3}
         x={80}
         y={0}
         duration={0.9}
-        className="absolute bottom-[8%] right-[3%] sm:right-[6%] md:right-[10%] w-[120px] sm:w-[160px] md:w-[210px] pointer-events-none select-none z-0"
+        className="absolute bottom-[6%] right-[2%] sm:right-[5%] md:right-[8%] w-[115px] sm:w-[165px] md:w-[215px] pointer-events-none select-none z-0"
       >
-        <SafeImage
-          src="https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/Group_134-1.2e04f3ce.png"
-          alt="3D Geometric Group"
-          transparentFallback
-          className="w-full h-auto object-contain"
-        />
+        <motion.div
+          animate={{ y: [0, 10, 0], rotate: [-2, 2, -2] }}
+          transition={{ duration: 7.5, repeat: Infinity, ease: 'easeInOut' }}
+          className="flex flex-col items-center"
+        >
+          <SafeImage
+            src={PORTFOLIO_IMAGES.iconCinemaFilmReel}
+            alt="35mm Film Reel & Director Monitor"
+            transparentFallback
+            className="w-full h-auto object-contain mix-blend-lighten rounded-3xl"
+          />
+          <span className="hidden sm:inline-block text-[10px] font-display-en tracking-widest uppercase text-[#D7E2EA]/40 -mt-2">
+            35MM REEL & MONITOR
+          </span>
+        </motion.div>
       </FadeIn>
 
       {/* Center Content */}
